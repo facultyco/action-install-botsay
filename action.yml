@@ -1,0 +1,10 @@
+name: 'Install botsay'
+description: 'installs botsay'
+runs:
+  using: "composite"
+  steps:
+    - run: |
+        wget --quiet https://custom-packages.faculty.net/botsay-0.1.0
+        chmod +x botsay-0.1.0
+        sudo mv botsay-0.1.0 /bin/botsay
+      shell: bash
