@@ -6,7 +6,7 @@ runs:
     - run: |
         curl -s -o botsay https://custom-packages.faculty.net/botsay-0.1.0
         chmod +x botsay
-        if [ "$EUID" -eq 0 ]
+        if [ "$EUID" -eq 0 ]; then
           mv botsay /bin/botsay
         else
           sudo mv botsay /bin/botsay
