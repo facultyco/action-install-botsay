@@ -6,5 +6,10 @@ runs:
     - run: |
         curl -s -o botsay https://custom-packages.faculty.net/botsay-0.1.0
         chmod +x botsay
-        sudo mv botsay /bin/botsay
+        if [ "$EUID" -eq 0 ]
+          mv botsay /bin/botsay
+        else
+          sudo mv botsay /bin/botsay
+        fi
+
       shell: bash
